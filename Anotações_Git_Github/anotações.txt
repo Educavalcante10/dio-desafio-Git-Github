@@ -1,0 +1,101 @@
+Git & GitHub
+
+1.	Controle de versão
+2.	Armazenamento em nuvem
+3.	Trabalho em equipe
+4.	Melhorar seu código
+5.	Reconhecimento
+ 
+Git não tem gráfico ele é por linha de comando “CLI = Comando Line Interface”
+Comandos com Windows:
+-cd: navegue entre as pastas
+-dir : lista as pastas
+-cls: limpa o terminal
+-mkdir: cria pasta 
+-echo: ele printa na tela o que você escreveu
+“>” joga dentro de um arquivo
+Echo hello > hello.txt    vai jogar o texto dentro de um arquivo e caso não exista ele criará
+- del : apaga somente o que está dentro da pasta e não a pasta em si
+-rmdir: com flag /s /q para apagar a pasta, subpastas e todos os arquivos dentro
+C:\>rmdir workspace /s /q
+-Tecla TAB autocompleta o nome da pasta
+ 
+Comandos Linux:
+-ls : lista as pastas
+-a pastas ocultas
+-cd: navegue entre as pastas
+-clear: limpa o terminal ou crtl+l
+-mkdir: cria pasta 
+-echo: ele printa na tela o que você escreveu
+“>” joga dentro de um arquivo
+Echo hello > hello.txt    vai jogar o texto dentro de um arquivo e caso não exista ele criará
+-rm : com flag -rf para apagar a pasta e todos os arquivos dentro
+C:  rm -rf “nome da pasta”
+Entendendo o Git
+- SHA1: algoritmo de encriptação e na encriptação gera um conjunto de 40 caracteres e se você entra e muda uma virgula, ele gera outra chave, e se entrar novamente e volta igual estava ele retorna com a mesma chave, possibilitando saber se houve modificação
+ 
+ 
+* Chave ORIGINAL*
+* Chave Modificada*
+* Chave de Original* porque foi desfeita a alteração
+ 
+
+-Objetos fundamentais:
+BLOBS: O objeto blob que tem como estrutura
+Conforme a imagem, por isso
+Por isso usando a função 
+echo ‘conteudo’ / git hash-object --stdin
+ 
+gerando uma chave diferente do que se fosse feito pelo sha1
+
+ 
+para ficar igual no sha1 tem que acrescentar  “blob \0 ‘conteudo’ “
+
+Onde: Blob : é o tipo do arquivo; 9 número de caracteres; \0 padrão do blob; e o conteúdo
+ Gerando a mesma chave 
+Git guarda meta dados do nos Blob
+TREES: Elas armazenas BLOBS, Ela tem também metadados, tamanho dos caracteres e os nome dos arquivos, ela pode apontar tantos para outras arvores quanto para blobs, que seria outras pastas. E tem um sha1 próprio, se mudar algo do blob muda também o da TREE
+ 
+ 
+ 
+COMMITS: è o objeto que junta tudo, ela aponta para  a TREE, aponta para parente( que é o último COMMIT feito antes dele), aponta para o autor e aponta para uma mensagem(que pode ser uma mensagem para mostrar o que se foi feito dentro do COMMIT). E ele também tem um sha1, se alterar algo desde um BLOB alterara o sha1 do COMMIT.
+Tendo assim uma confiabilidade das alterações 
+
+CHAVE SSH:  estabelece uma comunicação segura entre sua máquina e o GitHub, tem 2 chaves públicas e privada, onde deixa nossa máquina já fica configurada
+ 
+Iniciando o Git e criando um commit
+Primeiros comandos: trabalhando pelo terminal sempre se põe o nome do programa na frente para chama-lo:
+Ex: “git”  
+    -git init: cria a pasta . git oculta na pasta de trabalho e inicializa o repositório(  
+-git add:
+-git commit:
+-git status: diz em qual estagio está o arquivo
+-git config --global user.email eduardocavalcante10@gmail.com: configuração inicial para receber o autor do commit
+ 
+ 
+Tracked e Untracked
+ 
+Untracked: São arquivos que o git não tem ciência deles
+Unmodified: São arquivos que o ainda não foram modificados no seu texto
+Staged: Onde fica os arquivos preparados para serem usados em um commit, após virar um commit, os arquivos voltam a ser unmodified para começar o ciclo novamente, criando um snapshot(como se fosse uma foto de tudo)
+Quando foi usado Git add:  Tiro o arquivo de untracked foi para staged
+Unmodified para modified : o git compara o sha1 de quando foi criado, se foi modificado o status muda para modified
+Se um arquivo unmodified for removido ele volta a ser Untracked
+Quando você fianaliza o seu trabalho ele vai para um repositório local(somente commits), que futuramente você envia para um repositório remoto(git hub)
+ 
+ 
+Para mostrar o status que está cada arquivo, usa – se o comando “ -git status”
+
+Após criar o arquivo README.md, foi add e commit -m(-m para incluir a mensagem que ira aparecer
+ 
+ 
+ 
+ 
+GITHUB
+ 
+Resolvendo conflitos
+ 
+Quando os arquivos do servidor e local estiverem diferente, é necessário fazer um "pull", ver e arrumar as diferenças para depois "Push" empurrar novamente para o GITHUB
+ 
+ 
+ 
